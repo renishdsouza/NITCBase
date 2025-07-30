@@ -19,7 +19,12 @@ int main(int argc, char *argv[]) {
   Disk::readBlock(buffer2,7000);
   char message2[6];
   memcpy(message2,buffer2+20,6);
-  cout << message2;
+  cout << message2<<endl;
+  unsigned char buffer3[BLOCK_SIZE];
+  Disk::readBlock(buffer3,0);
+  for(int i=0;i<20;i++){
+    cout<<(int)buffer3[i]<<endl;
+  }  
   return 0;
 
   // return FrontendInterface::handleFrontend(argc, argv);

@@ -20,10 +20,15 @@ int main(int argc, char *argv[]) {
   relCatBuffer.getHeader(&relCatHeader);
   attrCatBuffer.getHeader(&attrCatHeader);
   
-  
+  for (int i=0;i<relCatHeader->numEntries;i++/* i = 0 to total relation count */) {
+
+    Attribute relCatRecord[RELCAT_NO_ATTRS]; // will store the record from the relation catalog
+
+    relCatBuffer.getRecord(relCatRecord, i);
+
     printf("Relation: %s\n", relCatRecord[RELCAT_REL_NAME_INDEX].sVal);
 
-    for (/* j = 0 to number of entries in the attribute catalog */) {
+    for (int j=0;j<;j++/* j = 0 to number of entries in the attribute catalog */) {
 
       // declare attrCatRecord and load the attribute catalog entry into it
 

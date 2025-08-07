@@ -25,7 +25,6 @@ int BlockBuffer::getHeader(struct HeadInfo *head) {
   memcpy(&head->numAttrs, /* fill this */buffer+20, 4);
   memcpy(&head->rblock, /* fill this */buffer+12, 4);
   memcpy(&head->lblock, /* fill this */buffer+8, 4);
-  memcpy(&head->pblock,buffer+4, 4);
 
   return SUCCESS;
 }
@@ -48,7 +47,7 @@ int RecBuffer::getRecord(union Attribute *rec, int slotNum) {
      - slotMap will be of size slotCount
   */
   int recordSize = attrCount * ATTR_SIZE;
-  unsigned char *slotPointer = /* calculate buffer + offset */buffer+(32+slotCount+(recordSize+slotNum));
+  unsigned char *slotPointer = /* calculate buffer + offset */buffer+(32+slotCount+(recordSize*slotNum));
 
   // load the record into the rec data structure
   memcpy(rec, slotPointer, recordSize);

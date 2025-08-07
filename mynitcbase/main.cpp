@@ -3,6 +3,7 @@
 #include "Disk_Class/Disk.h"
 #include "FrontendInterface/FrontendInterface.h"
 #include <iostream>
+#include <cstring>
 int main(int argc, char *argv[]) {
   /* Initialize the Run Copy of Disk */
   Disk disk_run;
@@ -33,7 +34,7 @@ int main(int argc, char *argv[]) {
       // declare attrCatRecord and load the attribute catalog entry into it
       Attribute attrCatRecord[ATTRCAT_NO_ATTRS];
 
-      attrCatBuffer.getRecord(attrCatRecord,j);
+      attrCatBuffer.getRecord(attrCatRecord,attrCatSlotIndex);
 
       if (/* attribute catalog entry corresponds to the current relation */strcmp(attrCatRecord[ATTRCAT_REL_NAME_INDEX].sVal,relCatRecord[RELCAT_REL_NAME_INDEX].sVal)==0) {
         const char *attrType = attrCatRecord[ATTRCAT_ATTR_TYPE_INDEX].nVal == NUMBER ? "NUM" : "STR";

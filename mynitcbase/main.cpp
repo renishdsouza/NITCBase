@@ -38,11 +38,11 @@ int main(int argc, char *argv[]) {
 
       if (/* attribute catalog entry corresponds to the current relation */strcmp(attrCatRecord[ATTRCAT_REL_NAME_INDEX].sVal,relCatRecord[RELCAT_REL_NAME_INDEX].sVal)==0) {
         const char *attrType = attrCatRecord[ATTRCAT_ATTR_TYPE_INDEX].nVal == NUMBER ? "NUM" : "STR";
-        // if(strcmp(attrCatRecord[ATTRCAT_ATTR_NAME_INDEX].sVal,"Class")==0){
-        //   // attrCatRecord[ATTRCAT_ATTR_NAME_INDEX].sVal="Batch";
-        //   printf("  Batch: %s\n", /* get the attribute name */ attrType);
-        // }
-        // else
+        if(strcmp(attrCatRecord[ATTRCAT_ATTR_NAME_INDEX].sVal,"Class")==0){
+          // attrCatRecord[ATTRCAT_ATTR_NAME_INDEX].sVal="Batch";
+          printf("  Batch: %s\n", /* get the attribute name */ attrType);
+        }
+        else
         printf("  %s: %s\n", /* get the attribute name */ attrCatRecord[ATTRCAT_ATTR_NAME_INDEX].sVal,attrType);
       }
 

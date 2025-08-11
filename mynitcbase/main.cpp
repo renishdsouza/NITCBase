@@ -36,11 +36,6 @@ void print_tables(){
 
       if (/* attribute catalog entry corresponds to the current relation */strcmp(attrCatRecord[ATTRCAT_REL_NAME_INDEX].sVal,relCatRecord[RELCAT_REL_NAME_INDEX].sVal)==0) {
         const char *attrType = attrCatRecord[ATTRCAT_ATTR_TYPE_INDEX].nVal == NUMBER ? "NUM" : "STR";
-        if(strcmp(attrCatRecord[ATTRCAT_ATTR_NAME_INDEX].sVal,"Class")==0){
-          // attrCatRecord[ATTRCAT_ATTR_NAME_INDEX].sVal="Batch";
-          printf("  Batch: %s\n", /* get the attribute name */ attrType);
-        }
-        else
         printf("  %s: %s\n", /* get the attribute name */ attrCatRecord[ATTRCAT_ATTR_NAME_INDEX].sVal,attrType);
       }
 
@@ -58,7 +53,7 @@ void stg2ex2(){
   unsigned char buffer[BLOCK_SIZE];
   Disk::readBlock(buffer,5);
   char bat[]="Batch";
-  memcpy(buffer+52+96*16,bat,6);
+  memcpy(buffer+52+96*15+16,bat,6);
   Disk::writeBlock(buffer,5);
 }
 

@@ -4,10 +4,8 @@
 #include "FrontendInterface/FrontendInterface.h"
 #include <iostream>
 #include <cstring>
-int main(int argc, char *argv[]) {
-  /* Initialize the Run Copy of Disk */
-  Disk disk_run;
 
+void print_tables(){
   // create objects for the relation catalog and attribute catalog
   RecBuffer relCatBuffer(RELCAT_BLOCK);
   RecBuffer attrCatBuffer(ATTRCAT_BLOCK);
@@ -54,6 +52,25 @@ int main(int argc, char *argv[]) {
     }
     printf("\n");
   }
+}
+
+void stg2ex2(){
+  unsigned char buffer[BLOCK_SIZE];
+  Disk::readBlock(buffer,5);
+  char bat[]="Batch";
+  memcpy(buffer+52+96*16,bat,6);
+  Disk::writeBlock(buffer,5);
+}
+
+int main(int argc, char *argv[]) {
+  /* Initialize the Run Copy of Disk */
+  Disk disk_run;
+
+  print_tables();
+
+  stg2ex2();
+
+  print_tables();
 
   return 0;
   // StaticBuffer buffer;

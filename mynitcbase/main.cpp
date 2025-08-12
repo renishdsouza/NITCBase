@@ -60,12 +60,16 @@ void stg2ex2(){
 int main(int argc, char *argv[]) {
   /* Initialize the Run Copy of Disk */
   Disk disk_run;
+  StaticBuffer buffer;
+  OpenRelTable cache;
 
   print_tables();
 
   stg2ex2();
 
   print_tables();
+
+
 
   return 0;
   // StaticBuffer buffer;

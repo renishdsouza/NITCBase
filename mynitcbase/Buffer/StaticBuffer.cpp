@@ -1,4 +1,5 @@
 #include "StaticBuffer.h"
+#include<stdio.h>
 // the declarations for this class can be found at "StaticBuffer.h"
 
 unsigned char StaticBuffer::blocks[BUFFER_CAPACITY][BLOCK_SIZE];
@@ -34,7 +35,13 @@ int StaticBuffer::getFreeBuffer(int blockNum) {
         allocatedBuffer=i;
     }
   }
-
+  // int cou=0;
+  // for(int i=0;i<BUFFER_CAPACITY;i++){
+  //   if(metainfo[i].free==false){
+  //     cou++;
+  //   }
+  // }
+  // printf("The number of blocks in the buffer that are in use are %d\n",cou);
   metainfo[allocatedBuffer].free = false;
   metainfo[allocatedBuffer].blockNum = blockNum;
 

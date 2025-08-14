@@ -57,17 +57,7 @@ void stg2ex2(){
   Disk::writeBlock(buffer,5);
 }
 
-int main(int argc, char *argv[]) {
-  /* Initialize the Run Copy of Disk */
-  Disk disk_run;
-  StaticBuffer buffer;
-  OpenRelTable cache;
-
-  // print_tables();
-
-  // stg2ex2();
-
-  // print_tables();
+void stg3ex1(){
   for (int relId = 0; relId <= 2; relId++) {
 		RelCatEntry relCatBuffer;
 		RelCacheTable::getRelCatEntry(relId, &relCatBuffer);
@@ -80,7 +70,21 @@ int main(int argc, char *argv[]) {
 		}
 		printf("\n");
 	}
+}
 
+int main(int argc, char *argv[]) {
+  /* Initialize the Run Copy of Disk */
+  Disk disk_run;
+  StaticBuffer buffer;
+  OpenRelTable cache;
+
+  // print_tables();
+
+  // stg2ex2();
+
+  // print_tables();
+
+  stg3ex1();
 
   return 0;
   // StaticBuffer buffer;

@@ -86,9 +86,9 @@ int main(int argc, char *argv[]) {
 
   stg3ex1();
 
-  return 0;
+  // return 0;
   // StaticBuffer buffer;
   // OpenRelTable cache;
 
-  // return FrontendInterface::handleFrontend(argc, argv);
+  return FrontendInterface::handleFrontend(argc, argv);
 }
